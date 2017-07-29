@@ -6,10 +6,13 @@
 
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script>
+        /*
+         *  HANDLE CHANGING BETWEEN SHOWING "LOG IN" OR "SIGN UP"
+        */
         $("#toggleLogin").click(function(){
             if($("#loginActive").val() == "0") {
                 $("#loginActive").val("1");
@@ -23,6 +26,25 @@
                 $("#toggleLogin").html("Already a member? Log in");
             }
         });
+
+        /*
+         *  HANDLE SENDING THE DATA OF THE SIGN UP / LOG IN FORM VIA AJAX
+         */
+        $("#signInBtn").click(function() {
+            $.ajax({
+                method: "POST",
+                url: "actions.php?action=loginSignup",
+                data: "email=" + $("#inputEmail").val() + "&password=" + $("#inputPassword").val() + "&loginActive=" + $("#loginActive").val(),
+                success: function(result) {
+                    if(result == 1) {
+                        window.location.assign("http://localhost:8000/ToDo/views/personallist.php");
+                    } else {
+                        $("#loginAlert").html(result).show();
+                    }
+                }
+            })
+        });
+
     </script>
   </body>
 </html>

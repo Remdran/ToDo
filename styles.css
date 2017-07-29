@@ -27,7 +27,7 @@ h1 {
 
 .form-signin {
   max-width: 430px;
-  padding: 15px;
+  padding: 15px 15px 0 15px;
   margin: 100px auto 0;
 }
 .form-signin .form-signin-heading,
@@ -62,4 +62,10 @@ h1 {
 #toggleLogin {
     color: blue;
     cursor: pointer;
+}
+
+#signInBtn, .btn-block {
+    max-width: 250px;
+    margin: 0 auto 20px;
+    
 }

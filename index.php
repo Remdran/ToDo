@@ -1,6 +1,12 @@
 <?php 
     include("functions.php");
     include("views/header.php");
-    include("views/home.php");
+
+    if(array_key_exists("page", $_GET) && $_GET['page'] == "personallist.php") {
+        include("views/personallist.php");
+    } else {
+        include("views/home.php");
+    }
+    
     include("views/footer.php");
 ?>
