@@ -18,14 +18,40 @@
         if($error != "") {
             echo $error;
             exit();
-        } else {
-            echo "1";
         }
 
+        /*
+        * LOGINACTIVE == 0 IS SIGNUP PAGE 
+        * SO CHECK THAT THE EMAIL ADDRESS ISN'T ALREADY IN USE
+        */
+        if($_POST['loginActive'] == "0") {
+            $query = "SELECT * FROM users WHERE `email` = '".mysqli_real_escape_string($link, $_POST['email'])."' LIMIT 1";
+            $result = mysqli_query($link, $query);
 
+            if(mysqli_num_rows($result) > 0) {
+                $error = "That email address is already in use";
+            } else { 
+                /*
+                 *  IT IS A NEW EMAIL SO ADD HIM INTO THE DATABASE
+                 */
+                $query = "INSERT INTO users (`email`, `password`) VALUES ('".mysqli_real_escape_string($link, $_POST['email'])."',
+                     '".mysqli_real_escape_string($link, $_POST['password'])."')";
 
+                if(mysqli_query($link, $query)) {
+                    /*
+                    * HASH THE PASSWORD
+                    */
+                    $_SESSION['id'] = mysqli_insert_id($link);
+                    $query = "UPDATE users SET `password` = '".md5(md5($_SESSION['id']).$_POST['password'])."' WHERE id = ".$_SESSION['id']." LIMIT 1";
 
+                    mysqli_query($link, $query);
 
+                    echo 1;
+                } else {
+                    $error = "Couldn't sign you up";
+                }
+            }
+        }
     }
 
 ?>

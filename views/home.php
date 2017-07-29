@@ -15,6 +15,6 @@
           </label>
         </div>
     </form>
-    <button class="btn btn-lg btn-primary btn-block" id="signInBtn">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" id="signInBtn">Sign Up</button>
       <p><a id="toggleLogin">Already a member? Log In</a></p>
 </div>

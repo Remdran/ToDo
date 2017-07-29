@@ -22,7 +22,7 @@
             } else {
                 $("#loginActive").val("0");
                 $("#formHeader").html("Create an account");
-                $("#signInBtn").html("Sign In");
+                $("#signInBtn").html("Sign Up");
                 $("#toggleLogin").html("Already a member? Log in");
             }
         });
