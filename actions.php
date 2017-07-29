@@ -51,7 +51,29 @@
                     $error = "Couldn't sign you up";
                 }
             }
+        } else {
+            /*
+            * LOGINACTIVE == 1 IS LOG IN PAGE 
+            * RETRIEVE USER ID FROM EMAIL FIRST FOR THE HASH, CHECK IF HASHED PASSWORDS MATCH, LOGIN USER
+            */
+            $query = "SELECT * FROM users WHERE `email` = '".mysqli_real_escape_string($link, $_POST['email'])."' LIMIT 1";
+            $result = mysqli_query($link, $query);
+
+            $row = mysqli_fetch_assoc($result);
+
+            if($row['password'] == md5(md5($row['id']).$_POST['password'])) {
+                $_SESSION['id'] = $row['id'];
+                echo 1;
+            } else {
+                $error = "Incorrect email or password";
+            }
         }
+
+        if($error != "") {
+            echo $error;
+            exit();
+        }
+
     }
 
 ?>

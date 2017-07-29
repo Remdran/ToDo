@@ -7,4 +7,8 @@
         print_r(mysqli_connect_error());
         exit();
     }
+
+    if(array_key_exists("logout", $_GET)) {
+        session_unset();
+    }
 ?>

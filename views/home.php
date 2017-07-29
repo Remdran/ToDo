@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Your Personal To Do List!</h1>
+    <h1 class="title">Your Personal To Do List!</h1>
 
     <form class="form-signin">
         <h2 class="form-signin-heading" id="formHeader">Create an account</h2>

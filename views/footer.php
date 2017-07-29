@@ -37,7 +37,7 @@
                 data: "email=" + $("#inputEmail").val() + "&password=" + $("#inputPassword").val() + "&loginActive=" + $("#loginActive").val(),
                 success: function(result) {
                     if(result == 1) {
-                        window.location.assign("http://localhost:8000/ToDo/views/personallist.php");
+                        window.location.assign("http://localhost:8000/ToDo?page=personallist");
                     } else {
                         $("#loginAlert").html(result).show();
                     }
