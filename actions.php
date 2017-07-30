@@ -81,7 +81,22 @@
      * RECIEVE DETAILS, CURRENTLY FROM FORM, AND ADD NEW ITEM TO THE DATABASE
      */
     if($_GET['action'] == 'newTask') {
-        print_r($_POST);
+        //Check if title or content are empty and are not too long
+        if(!$_POST['title']) {
+            echo "Please enter a title for your task";
+        } else if(!$_POST['desc']) {
+            echo "Please enter a description for your task";
+        } else if(strlen($_POST['desc']) > 100) {
+            echo "Your description is too long";
+        } else if(strlen($_POST['title']) > 100) {
+            echo "Your title is too long";
+        } else {
+            echo $query = "INSERT INTO list (`userid`, `title`, `description`) VALUES ('".mysqli_real_escape_string($link, $_SESSION['id'])."', 
+                '".mysqli_real_escape_string($link, $_POST['title'])."', '".mysqli_real_escape_string($link, $_POST['desc'])."')";
+            mysqli_query($link, $query);
+
+            echo "1";
+        }
     }
 
 
