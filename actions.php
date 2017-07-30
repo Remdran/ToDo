@@ -91,7 +91,7 @@
         } else if(strlen($_POST['title']) > 100) {
             echo "Your title is too long";
         } else {
-            echo $query = "INSERT INTO list (`userid`, `title`, `description`) VALUES ('".mysqli_real_escape_string($link, $_SESSION['id'])."', 
+            $query = "INSERT INTO list (`userid`, `title`, `description`) VALUES ('".mysqli_real_escape_string($link, $_SESSION['id'])."', 
                 '".mysqli_real_escape_string($link, $_POST['title'])."', '".mysqli_real_escape_string($link, $_POST['desc'])."')";
             mysqli_query($link, $query);
 
@@ -99,5 +99,9 @@
         }
     }
 
+    if($_GET['action'] == 'deleteTask') {
+        $query = "DELETE FROM list WHERE id = ".mysqli_real_escape_string($link, $_POST['taskId']). " LIMIT 1";
+        mysqli_query($link, $query);
+    }
 
 ?>
