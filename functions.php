@@ -13,10 +13,15 @@
     }
 
 
+    /*
+     *  RETRIEVE EVERYTHING WHERE USER ID OF THE TASK LIST DATABASE = OUR USERS ID
+     *  THEN DISPLAY IT
+     */
     function displayList() {
         global $link;
 
         $query = "SELECT * FROM list WHERE `userid` = ".mysqli_real_escape_string($link, $_SESSION['id']); 
+        //$query = "SELECT * FROM list WHERE `userid` = 3"; //Test different users list doesnt get pulled back with ours
         $result = mysqli_query($link, $query);
 
         if(mysqli_num_rows($result) == 0) {
@@ -28,4 +33,5 @@
         }
 
     }
+
 ?>

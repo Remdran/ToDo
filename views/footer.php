@@ -45,6 +45,17 @@
             })
         });
 
+        $("#addNewItem").click(function() {
+            $.ajax({
+                method: "POST",
+                url: "actions.php?action=newTask",
+                data: "title=" + $("#taskTitle").val() + "&desc=" + $("#taskContent").val(),
+                success: function(result) {
+                    alert(result);
+                }    
+           })
+        });
+
     </script>
   </body>
 </html>

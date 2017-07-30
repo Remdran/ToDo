@@ -76,4 +76,13 @@
 
     }
 
+
+    /*
+     * RECIEVE DETAILS, CURRENTLY FROM FORM, AND ADD NEW ITEM TO THE DATABASE
+     */
+    if($_GET['action'] == 'newTask') {
+        print_r($_POST);
+    }
+
+
 ?>
