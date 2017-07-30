@@ -6,3 +6,7 @@
 ☐ Handle deleting tasks from DB
 ☐ Work on ui for editing tasks
 ☐ Handle editing tasks in DB
+
+tasklist database needs a userid column which is the id of the user from users database.
+so userid can = session['id']. Then when retrieving the task list you can just retireve all tasks
+for that specific userid and each task can still have its own unique id. Enabling the account  system

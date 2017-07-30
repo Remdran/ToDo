@@ -69,3 +69,12 @@ body {
     margin: 0 auto 20px;
     
 }
+
+.tasks {
+  margin-top: 60px;
+  padding: 10px;
+}
+
+.listTitle {
+  font-size: 20px;
+}
