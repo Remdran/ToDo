@@ -81,33 +81,51 @@
      * RECIEVE DETAILS, CURRENTLY FROM FORM, AND ADD NEW ITEM TO THE DATABASE
      */
     if($_GET['action'] == 'newTask') {
+        $errorTask = "";
         //Check if title or content are empty and are not too long
         if(!$_POST['title']) {
-            echo "Please enter a title for your task";
+            $errorTask .= "Please enter a title for your task";
         } else if(!$_POST['desc']) {
-            echo "Please enter a description for your task";
+            $errorTask .= "Please enter a description for your task";
         } else if(strlen($_POST['desc']) > 100) {
-            echo "Your description is too long";
+            $errorTask = "Your description is too long";
         } else if(strlen($_POST['title']) > 100) {
-            echo "Your title is too long";
+            $errorTask = "Your title is too long";
         } else {
             $query = "INSERT INTO list (`userid`, `title`, `description`) VALUES ('".mysqli_real_escape_string($link, $_SESSION['id'])."', 
                 '".mysqli_real_escape_string($link, $_POST['title'])."', '".mysqli_real_escape_string($link, $_POST['desc'])."')";
-            mysqli_query($link, $query);
+            if (mysqli_query($link, $query)) {
+                echo "1";
+            } else {
+                $errorTask = "Couldn't create your new task";
+            }
 
-            echo "1";
+        }
+
+          if($errorTask != "") {
+            echo $errorTask;            
         }
     }
 
     if($_GET['action'] == 'deleteTask') {
+        $deleteError = "";
         $query = "DELETE FROM list WHERE id = ".mysqli_real_escape_string($link, $_POST['taskId']). " LIMIT 1";
-        mysqli_query($link, $query);
+        if (mysqli_query($link, $query)) {
+            echo "1";
+        } else {
+            $deleteError = "Couldn't delete your task";
+        }
     }
 
     if($_GET['action'] == 'editTask') {
+        $editError = "";
         $query = "UPDATE list SET `title` = '".mysqli_real_escape_string($link, $_POST['title'])."', `description` = '".mysqli_real_escape_string($link, $_POST['cont'])."' WHERE id = '".mysqli_real_escape_string($link, $_POST['taskId'])."' LIMIT 1";
 
-        mysqli_query($link, $query);
+        if (mysqli_query($link, $query)) {
+            echo "1";
+        } else {
+            $deleteError = "Couldn't edit your task";
+        }
     }
 
 

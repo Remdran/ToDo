@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">Created by Karl George &copy;</span>
+        <span class="text-muted">Created by <a target = "_blank" href="https://remdran.github.io/karlgeorge/">Karl George</a> &copy;</span>
     </div>
 </footer>
 
@@ -50,7 +50,11 @@
                 url: "actions.php?action=newTask",
                 data: "title=" + $("#taskTitle").val() + "&desc=" + $("#taskContent").val(),
                 success: function(result) {
-                    alert(result);
+                    if(result == 1) {
+                        $("#taskSuccess").html("Your task has been added").show();
+                    } else {
+                        $("#taskErrors").html(result).show();
+                    }
                 }    
            })
         });
@@ -61,7 +65,11 @@
                 url: "actions.php?action=deleteTask",
                 data: "taskId=" + $(this).data("id"),
                 success: function(result) {
-                    alert(result);
+                    if(result == 1) {
+                        $("#taskSuccess").html("Your task has been deleted").show();
+                    } else {
+                        $("#taskErrors").html(result).show();
+                    }
                 }
             })
         });
@@ -74,7 +82,12 @@
                 method: "POST",
                 url: "actions.php?action=editTask",
                 data: "taskId=" + $(this).data("id") + "&title=" + $(this).find(".listTitle").html() + "&cont=" + $(this).find(".listCont").html(),
-                success: function(result) {                  
+                success: function(result) { 
+                    if(result == 1) {
+                        $("#taskSuccess").html("Your task has been edited").show();
+                    } else {
+                        $("#taskErrors").html(result).show();
+                    }                 
                 }
             })
 
