@@ -105,8 +105,12 @@
     }
 
     if($_GET['action'] == 'editTask') {
-        
+        $query = "UPDATE list SET `title` = '".mysqli_real_escape_string($link, $_POST['title'])."', `description` = '".mysqli_real_escape_string($link, $_POST['cont'])."' WHERE id = '".mysqli_real_escape_string($link, $_POST['taskId'])."' LIMIT 1";
 
+        mysqli_query($link, $query);
     }
+
+
+    
 
 ?>

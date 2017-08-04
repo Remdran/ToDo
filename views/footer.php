@@ -69,13 +69,12 @@
         /*
          * HANDLE A USER EDITING THEIR TASKS
          */
-        $(".tasks").bind('input propertychange', function() {
+        $(".tasks").bind('input propertychange', function() {      
             $.ajax({
                 method: "POST",
                 url: "actions.php?action=editTask",
-                data: "taskId=" + $(this).data("id") + "&title=" + $(".listTitle").html() + "&cont=" + $(".listCont").html(),
-                success: function(result) {
-                    alert(result);
+                data: "taskId=" + $(this).data("id") + "&title=" + $(this).find(".listTitle").html() + "&cont=" + $(this).find(".listCont").html(),
+                success: function(result) {                  
                 }
             })
 

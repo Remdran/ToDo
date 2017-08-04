@@ -5,5 +5,5 @@
 ✔ Work on ui for deleting tasks @done (30/07/2017, 12:39:07)
 ✔ Handle deleting tasks from DB @done (30/07/2017, 12:39:07)
 ✔ Work on ui for editing tasks @done (04/08/2017, 09:47:49)
-☐ Handle editing tasks in DB
+✔ Handle editing tasks in DB @done (04/08/2017, 11:55:30)
 ☐ Pretty the task list on personallist page

@@ -28,7 +28,11 @@
             echo "You haven't created a task yet";
         } else {
             while($row = mysqli_fetch_assoc($result)) {
-                echo "<p data-id='".$row['id']."' contenteditable='true' class='tasks'><span class='listTitle'>".$row['title'].":</span><span class='listCont'>".$row['description']."</span></p><button class='deleteBtn' data-id='".$row['id']."'>Delete</button>";
+                echo "<p data-id='".$row['id']."' contenteditable='true' class='tasks'>
+                        <span class='listTitle'>".$row['title']."</span> 
+                        <span class='listCont'>".$row['description']."</span>
+                    </p>
+                    <button class='deleteBtn' data-id='".$row['id']."'>Delete</button>";
             }
         }
     }
