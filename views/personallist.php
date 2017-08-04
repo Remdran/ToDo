@@ -5,7 +5,6 @@
         displayList();
     ?>        
 
-
     <form class="form-newItem">
         <h2 class="form-signin-heading" id="formHeader">Add a new task</h2>
         <input type="text" id="taskTitle" class="form-control" placeholder="Title of your task">
