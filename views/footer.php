@@ -52,6 +52,7 @@
                 success: function(result) {
                     if(result == 1) {
                         $("#taskSuccess").html("Your task has been added").show();
+                        location.reload();
                     } else {
                         $("#taskErrors").html(result).show();
                     }
@@ -67,6 +68,7 @@
                 success: function(result) {
                     if(result == 1) {
                         $("#taskSuccess").html("Your task has been deleted").show();
+                        location.reload();
                     } else {
                         $("#taskErrors").html(result).show();
                     }
