@@ -7,3 +7,5 @@
 ✔ Work on ui for editing tasks @done (04/08/2017, 09:47:49)
 ✔ Handle editing tasks in DB @done (04/08/2017, 11:55:30)
 ☐ Pretty the task list on personallist page
+☐ Show an error or success alert when you try to create a new task
+☐ Show an error / success alert when you try to delete a task

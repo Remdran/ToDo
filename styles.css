@@ -66,15 +66,63 @@ body {
 
 #signInBtn, .btn-block {
     max-width: 250px;
-    margin: 0 auto 20px;
-    
+    margin: 0 auto 20px;    
+}
+
+.taskContainer {
+  width: 800px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  margin: 50px auto;
+  padding: 10px;
+  background-color: lightgrey;
 }
 
 .tasks {
-  margin-top: 60px;
-  padding: 10px;
+  background-color: white;
+  border: 1px solid grey;
+  margin: 10px auto;
+  width: 750px;
+  padding: 10px 10px 12px 20px;
+  text-align: left;
 }
 
 .listTitle {
   font-size: 20px;
+  font-weight: bold;
+  padding-right: 10px;
+  border-right: 1px solid grey;
+}
+
+.listCont {
+  padding-left: 8px;
+}
+
+.deleteBtn {
+  display: inline;
+  line-height: 1.35;
+  float: right;
+}
+
+.form-newItem {
+  width: 750px;
+  margin: 0 auto;
+  background-color: lightgrey;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+
+.form-newItem-heading {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+#taskTitle {
+  margin-bottom: 10px;
+}
+
+#addNewItem {
+  margin-top: 15px;
+  width: 180px;
 }

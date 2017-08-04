@@ -31,8 +31,8 @@
                 echo "<p data-id='".$row['id']."' contenteditable='true' class='tasks'>
                         <span class='listTitle'>".$row['title']."</span> 
                         <span class='listCont'>".$row['description']."</span>
-                    </p>
-                    <button class='deleteBtn' data-id='".$row['id']."'>Delete</button>";
+                        <button class='deleteBtn' data-id='".$row['id']."'>&#10060;</button>
+                    </p>";
             }
         }
     }
