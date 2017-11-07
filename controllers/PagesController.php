@@ -8,8 +8,13 @@ class PagesController
         require 'views/home.php';
     }
 
-    public function hi()
+    public function signup()
     {
-        echo "Hello";
+        require 'views/signup.php';
+    }
+
+    public function login()
+    {
+        require 'views/login.php';
     }
 }
