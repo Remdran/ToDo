@@ -22,14 +22,12 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS, $intoClass);
     }
 
-    public function storeToDB($userid, $title, $desc)
+    public function storeToDB($table, $params)
     {
-        $statement = $this->pdo->prepare("INSERT INTO list (userid, title, description) VALUES (:userid, :title, :description)");
-        $statement->bindParam(':userid', $userid);
-        $statement->bindParam(':title', $title);
-        $statement->bindParam(':description', $desc);
+        $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $table, implode(', ', array_keys($params)), ':' . implode(', :', array_keys($params)));
 
-        $statement->execute();
+        $statement = $this->pdo->prepare($sql);
 
+        $statement->execute($params);
     }
 }
