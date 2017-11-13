@@ -25,15 +25,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Your Tasks</a>
-                </li>
-                <?php if($_SESSION['logged_in'] != '1') : ?>
+                <?php if ($_SESSION['id'] == null) : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
+                        <a class="nav-link" href="/signup">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                 <?php else : ?>
                 <li class="nav-item">
