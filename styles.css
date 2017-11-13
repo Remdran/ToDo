@@ -1,0 +1,144 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 100px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1440px;
+    text-align: center;
+}
+
+.title {
+    margin-top: 100px;
+}
+
+.form-signin {
+    max-width: 430px;
+    padding: 15px 15px 0 15px;
+    margin: 100px auto 0;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 30px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#toggleLogin {
+    color: blue;
+    cursor: pointer;
+}
+
+#signInBtn, .btn-block {
+    max-width: 250px;
+    margin: 0 auto 20px;
+}
+
+.taskContainer {
+    width: 800px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    margin: 50px auto 0px;
+    padding: 10px;
+    background-color: lightgrey;
+}
+
+.tasks {
+    background-color: white;
+    border: 1px solid grey;
+    margin: 10px auto;
+    width: 750px;
+    padding: 10px 10px 12px 20px;
+    text-align: left;
+}
+
+.listTitle {
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 10px;
+    border-right: 1px solid grey;
+}
+
+.listCont {
+    padding-left: 8px;
+}
+
+.deleteBtn {
+    display: inline;
+    line-height: 1.35;
+    float: right;
+}
+
+.form-newItem {
+    width: 750px;
+    margin: 0 auto;
+    background-color: lightgrey;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+.form-newItem-heading {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+#taskTitle {
+    margin-bottom: 10px;
+}
+
+#addNewItem {
+    margin-top: 15px;
+    width: 180px;
+}
+
+.editInfo {
+    font-size: 12px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
