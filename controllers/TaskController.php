@@ -21,4 +21,14 @@ class TaskController
 
         header('Location:/tasks');
     }
+
+    public function destroy()
+    {
+        $id = explode("=", $_SERVER['QUERY_STRING']);
+        $id = $id[1];
+
+        App::get('database')->deleteTask($id);
+
+        header('Location:/tasks');
+    }
 }

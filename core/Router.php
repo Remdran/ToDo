@@ -44,9 +44,4 @@ class Router
 
         return $controller->$func();
     }
-
-    public function home()
-    {
-        return header('Location: localhost:8000');
-    }
 }

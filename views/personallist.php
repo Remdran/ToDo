@@ -7,8 +7,11 @@
         <div class="taskContainer">
             <h1>Tasks</h1>
             <?php foreach ($tasks as $task) : ?>
-                <?= $task->title; ?>
-                <?= $task->body; ?>
+                <p class="tasks">
+                    <span class="listTitle" contenteditable="true"><?= $task->title; ?></span>
+                    <span class="listCont" contenteditable="true"><?= $task->body; ?></span>
+                    <button class="deleteBtn"><a href="/d?id=<?= $task->id ?>">&#10060;</a></button>
+                </p>
             <?php endforeach; ?>
 
         </div>

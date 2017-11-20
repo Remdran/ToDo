@@ -24,7 +24,7 @@ class QueryBuilder
 
     public function checkLogin($email, $password)
     {
-        $sql = 'SELECT * FROM users WHERE email=  :email';
+        $sql = 'SELECT * FROM users WHERE email= :email';
         $statement = $this->pdo->prepare($sql);
         $statement->bindParam(':email', $email);
         $statement->execute();
@@ -65,5 +65,13 @@ class QueryBuilder
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function deleteTask($id)
+    {
+        $sql = 'DELETE FROM tasks WHERE id= :id';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
     }
 }
