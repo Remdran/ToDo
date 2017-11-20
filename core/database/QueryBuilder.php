@@ -54,9 +54,16 @@ class QueryBuilder
     public function storeTask($table, $params)
     {
         $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $table, implode(', ', array_keys($params)), ':' . implode(', :', array_keys($params)));
-        // var dump sql to check the string is correct
 
         $statement = $this->pdo->prepare($sql);
         $statement->execute($params);
+    }
+
+    public function retrieveAllTasks()
+    {
+        $statement = $this->pdo->prepare("SELECT * FROM tasks WHERE userid = '" . $_SESSION['id'] . "'");
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 }

@@ -6,12 +6,17 @@
         <div class="alert alert-success" id="taskSuccess" style="display:none"></div>
         <div class="taskContainer">
             <h1>Tasks</h1>
+            <?php foreach ($tasks as $task) : ?>
+                <?= $task->title; ?>
+                <?= $task->body; ?>
+            <?php endforeach; ?>
+
         </div>
         <span class="editInfo">To edit a task simply click on the text you wish to change</span>
 
 
         <h2 class="form-newItem-heading" id="formHeader">Add a new task</h2>
-        <form class="form-newItem" method="POST" action="">
+        <form class="form-newItem" method="POST" action="/tasks/new">
             <input type="text" id="taskTitle" name="taskTitle" class="form-control" placeholder="Title of your task">
             <input type="text" id="taskContent" name="taskContent" class="form-control" placeholder="Task description">
 
