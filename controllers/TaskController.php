@@ -31,4 +31,16 @@ class TaskController
 
         header('Location:/tasks');
     }
+
+    public function update()
+    {
+//        var_dump($_POST);
+        $id = $_POST['taskId'];
+        $title = $_POST['taskTitle'];
+        $body = $_POST['taskBody'];
+
+        App::get('database')->updateTask($title, $body, $id);
+
+        header('Location:/tasks');
+    }
 }

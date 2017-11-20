@@ -74,4 +74,15 @@ class QueryBuilder
         $statement->bindParam(':id', $id);
         $statement->execute();
     }
+
+    public function updateTask($title, $body, $id)
+    {
+        $sql = 'UPDATE tasks SET title= :title, body= :body WHERE id= :id';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':title', $title);
+        $statement->bindParam(':body', $body);
+        $statement->bindParam(':id', $id);
+
+        $statement->execute();
+    }
 }
