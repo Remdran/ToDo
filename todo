@@ -1,3 +1,4 @@
 todo Create a button that hides/shows the Update-Task form
 todo Check different users can edit their tasks with no problems
 todo Give the styling of the site a pass over
+todo add error checking. If same email is being used when logging in, make sure char limits aren't exceeded etc

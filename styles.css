@@ -10,7 +10,7 @@ body {
 
 .footer {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
@@ -25,6 +25,17 @@ body {
 
 .title {
     margin-top: 100px;
+    font-size: 3em;
+}
+
+.titleInfo {
+    margin: 2em auto;
+    font-size: 2em;
+}
+
+.signupP, .loginP {
+    font-size: 1.6em;
+    margin-bottom: 1.2em;
 }
 
 .form-signin {
@@ -67,11 +78,6 @@ body {
     border-top-right-radius: 0;
 }
 
-#toggleLogin {
-    color: blue;
-    cursor: pointer;
-}
-
 #signInBtn, .btn-block {
     max-width: 250px;
     margin: 0 auto 20px;
@@ -93,6 +99,7 @@ body {
     width: 750px;
     padding: 10px 10px 12px 20px;
     text-align: left;
+    display: flex;
 }
 
 .listTitle {
@@ -104,13 +111,25 @@ body {
 
 .listCont {
     padding-left: 8px;
+    padding-top: 5px;
+}
+
+.editBtn {
+    display: inline;
+    line-height: 1.35;
+    margin-left: auto;
+    margin-right: 8px;
 }
 
 .deleteBtn {
     display: inline;
     line-height: 1.35;
-    float: right;
 }
+
+#delA {
+    color: red;
+}
+
 
 .form-newItem {
     width: 750px;
@@ -127,7 +146,9 @@ body {
 }
 
 #taskTitle {
-    margin-bottom: 10px;
+    width: 750px;
+    margin: 10px auto;
+    padding: 10px;
 }
 
 #addNewItem {
@@ -141,4 +162,18 @@ body {
 
 .navbar {
     margin-bottom: 20px;
+}
+
+.edit {
+    display: none;
+    margin: 30px 0;
+}
+
+#updateBtn {
+    margin-top: 20px;
+    align-self: center;
+}
+
+#formHeader {
+    text-align: center;
 }
