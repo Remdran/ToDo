@@ -13,11 +13,13 @@ class TaskController
 
     public function store()
     {
-        App::get('database')->storeTask('tasks', [
-            'userid' => $_SESSION['id'],
-            'title'  => $_POST['taskTitle'],
-            'body'   => $_POST['taskContent']
-        ]);
+        if ($this->validate()) {
+            App::get('database')->storeTask('tasks', [
+                'userid' => $_SESSION['id'],
+                'title'  => $_POST['taskTitle'],
+                'body'   => $_POST['taskContent']
+            ]);
+        }
 
         header('Location:/tasks');
     }
@@ -34,7 +36,6 @@ class TaskController
 
     public function update()
     {
-//        var_dump($_POST);
         $id = $_POST['taskId'];
         $title = $_POST['taskTitle'];
         $body = $_POST['taskBody'];
@@ -42,5 +43,16 @@ class TaskController
         App::get('database')->updateTask($title, $body, $id);
 
         header('Location:/tasks');
+    }
+
+    public function validate()
+    {
+        if ($_POST['title'] > 20) {
+            die("title is too long, max chars 60");
+        } else if ($_POST['taskBody'] > 40) {
+            die("description is too long, max chars 40");
+        } else {
+            return true;
+        }
     }
 }

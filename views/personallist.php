@@ -16,9 +16,10 @@
                     <h2 class="form-signin-heading" id="updateFormHeader">Update this task</h2>
                     <input type="text" id="taskId" name="taskId" class="form-control" value="<?= $task->id; ?>"
                            style="display:none">
-                    <input type="text" name="taskTitle" class="form-control taskTitle" value="<?= $task->title; ?>"
+                    <input type="text" maxlength="20" name="taskTitle" class="form-control taskTitle"
+                           value="<?= $task->title; ?>"
                            autofocus>
-                    <input type="text" name="taskBody" class="form-control taskBody"
+                    <input type="text" maxlength="40" name="taskBody" class="form-control taskBody"
                            value="<?= $task->body; ?>">
                     <button type="submit" class="btn btn-lg btn-primary btn-block" id="updateBtn">Update</button>
                 </form>
@@ -27,8 +28,10 @@
 
         <h2 class="form-newItem-heading" id="formHeader">Add a new task</h2>
         <form class="form-newItem" method="POST" action="/tasks/new">
-            <input type="text" name="taskTitle" class="form-control taskTitle" placeholder="Title of your task">
-            <input type="text" name="taskContent" class="form-control taskBody" placeholder="Task description">
+            <input type="text" maxlength="20" name="taskTitle" class="form-control taskTitle"
+                   placeholder="Title of your task">
+            <input type="text" maxlength="40" name="taskContent" class="form-control taskBody"
+                   placeholder="Task description">
 
             <button type="submit" class="btn btn-lg btn-primary btn-block" id="addNewItem">Add Item</button>
         </form>

@@ -1,1 +1,1 @@
-todo add error checking. If same email is being used when logging in, make sure char limits aren't exceeded etc
+todo Clean up error messages

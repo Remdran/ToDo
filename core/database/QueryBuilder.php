@@ -44,11 +44,30 @@ class QueryBuilder
 
     public function storeUser($table, $params)
     {
+        if ( ! $this->checkEmailInUse($params['email'])) {
+            echo "Email already in use";
+            die();
+        }
+
         $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $table, implode(', ', array_keys($params)), ':' . implode(', :', array_keys($params)));
 
         $statement = $this->pdo->prepare($sql);
         $statement->execute($params);
         $_SESSION['id'] = $this->pdo->lastInsertId();
+    }
+
+    public function checkEmailInUse($email)
+    {
+        $sql = 'SELECT * FROM users WHERE email= :email';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(':email', $email);
+        $statement->execute();
+
+        if ($statement->rowCount() > 0) {
+            die("Email in use");
+        } else {
+            return true;
+        }
     }
 
     public function storeTask($table, $params)
