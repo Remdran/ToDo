@@ -87,7 +87,7 @@ body {
     width: 800px;
     border: 1px solid grey;
     border-radius: 8px;
-    margin: 50px auto 0px;
+    margin: 50px auto 0;
     padding: 10px;
     background-color: lightgrey;
 }
@@ -130,19 +130,18 @@ body {
     color: red;
 }
 
-
-.form-newItem {
-    width: 750px;
-    margin: 0 auto;
-    background-color: lightgrey;
-    padding: 20px;
-    border: 1px solid grey;
-    border-radius: 8px;
-}
-
 .form-newItem-heading {
     margin-top: 100px;
     margin-bottom: 20px;
+}
+
+.form-newItem {
+    width: 800px;
+    margin: 20px auto 100px;
+    background-color: lightgrey;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 8px;
 }
 
 #taskTitle {
@@ -156,10 +155,6 @@ body {
     width: 180px;
 }
 
-.editInfo {
-    font-size: 12px;
-}
-
 .navbar {
     margin-bottom: 20px;
 }
@@ -170,10 +165,35 @@ body {
 }
 
 #updateBtn {
-    margin-top: 20px;
+    margin: 20px 260px 80px;
     align-self: center;
 }
 
 #formHeader {
     text-align: center;
+    font-size: 1.6em;
+}
+
+#updateFormHeader {
+    font-size: 1.6em;
+    text-align: center;
+    width: 750px;
+}
+
+input.form-control.taskTitle {
+    margin: 10px auto;
+    width: 750px;
+    padding: 10px 10px 12px 20px;
+    text-align: left;
+    background-color: white;
+    border: 1px solid grey;
+}
+
+input.form-control.taskBody {
+    margin: 10px auto;
+    width: 750px;
+    padding: 10px 10px 12px 20px;
+    text-align: left;
+    background-color: white;
+    border: 1px solid grey;
 }
