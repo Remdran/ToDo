@@ -2,7 +2,7 @@
 
 <div class="container">
     <h1 class="title">Your Personal To Do List!</h1>
-
+    <p class="bg-danger"><?= $_SESSION['message']; ?></p>
     <form class="form-signin" method="POST" action="/login">
         <h2 class="form-signin-heading" id="formHeader">Log In</h2>
         <div class="alert alert-danger" id="loginAlert" style="display:none"></div>
@@ -16,5 +16,7 @@
     </form>
     <p><a href="/signup" id="toggleLogin">Create an account</a></p>
 </div>
+
+<?php $_SESSION['message'] = ""; ?>
 
 <?php require 'views/footer.php'; ?>

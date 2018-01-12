@@ -8,24 +8,27 @@ class UserController
 
     public function store()
     {
-
         if ( ! $this->validate()) {
             header('Location:/signup');
-            die();
+        } else {
+            if (App::get('database')->storeUser('users', [
+                'email'    => $_POST['email'],
+                'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)
+            ])) {
+                header('Location:/');
+            } else {
+                header('Location:signup');
+            }
         }
-
-        App::get('database')->storeUser('users', [
-            'email'    => $_POST['email'],
-            'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)
-        ]);
-
-        header('Location:/');
     }
 
     public function login()
     {
-        App::get('database')->checkLogin($_POST['email'], $_POST['password']);
-        header('Location:/');
+        if (App::get('database')->checkLogin($_POST['email'], $_POST['password'])) {
+            header('Location:/');
+        } else {
+            header('Location:login');
+        }
     }
 
     public function logout()
@@ -42,14 +45,16 @@ class UserController
     public function validate()
     {
         if ( ! $_POST['email']) {
-            echo "<p class='alert alert-danger' id='loginAlert'>Please enter an email address</p>";
+            $this->error = "Please enter an email address";
             return false;
         } else if ( ! $_POST['password']) {
-            echo "<p class='alert alert-danger' id='loginAlert'>Please enter a password</p>";
+            $this->error = "Please enter a password";
             return false;
         } else if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-            echo "Please enter a valid email address";
+            $this->error = "Please enter a valid email address";
             return false;
+        } else {
+            return true;
         }
     }
 }

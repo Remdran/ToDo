@@ -34,19 +34,22 @@ class QueryBuilder
         if ($statement->rowCount() > 0) {
             if (password_verify($password, $user[0]['password'])) {
                 $_SESSION['id'] = $user[0]['id'];
+                return true;
             } else {
-                die("Wrong Password");
+                $_SESSION['message'] = "Wrong Password";
+                return false;
             }
         } else {
-            die("Wrong email");
+            $_SESSION['message'] = "Wrong Email";
+            return false;
         }
     }
 
     public function storeUser($table, $params)
     {
         if ( ! $this->checkEmailInUse($params['email'])) {
-            echo "Email already in use";
-            die();
+            $_SESSION['message'] = "Email already in use";
+            return false;
         }
 
         $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)', $table, implode(', ', array_keys($params)), ':' . implode(', :', array_keys($params)));
@@ -54,6 +57,7 @@ class QueryBuilder
         $statement = $this->pdo->prepare($sql);
         $statement->execute($params);
         $_SESSION['id'] = $this->pdo->lastInsertId();
+        return true;
     }
 
     public function checkEmailInUse($email)
@@ -64,7 +68,7 @@ class QueryBuilder
         $statement->execute();
 
         if ($statement->rowCount() > 0) {
-            die("Email in use");
+            return false;
         } else {
             return true;
         }
